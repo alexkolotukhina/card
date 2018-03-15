@@ -1,0 +1,178 @@
+@import 'normalize.css';
+@import 'layout.css';
+
+body{
+	background: url('../img/flour-wall-1920x1080-wallpaper.jpg') no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+
+
+/* Layout */
+.ba-container{
+	padding-left: 20px;
+	padding-right: 20px;
+	max-width: 1200px;
+}
+.ba-card {
+	padding-top: 30px;
+
+
+	&__wrapper {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		height: 100vh;
+
+		@media screen and (min-width: 1024px) {
+			justify-content: space-between;
+		}
+	}
+	&__item {
+		flex-basis: 243px;
+		height: 345px;
+		margin: 15px;
+		position: relative;
+		perspective: 500px;
+		border-radius: 20px;
+
+		div {
+			border-radius: 12px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			width: 100%;
+			height: 100%;
+			transition: .4s ease-in;
+			transition-property: background, transform;
+			transform-style: preserve-3d;
+		}
+
+		&:hover {
+			.ba-card-front {
+				transform: rotateY(-180deg);
+			}
+			.ba-card-back {
+				transform: rotateY(0deg);
+			}
+		}
+	}
+	&-front {
+		background: url('../img/card.png') center;
+		background-size: cover;
+		backface-visibility: hidden;
+	}
+	&-back {
+		background: #fff;
+		transform: rotateY(-180deg) translateZ(0);
+		backface-visibility: hidden;
+	}
+	&__suit  {
+		height: 20px;
+		width: 20px;
+		position: absolute;
+
+		&--top {
+			top: 30px;
+			left: 10px;
+		}
+		&--center {
+			width: 70px;
+			height: 70px;
+			top: calc(50% - 55px);
+			left: calc(50% - 35px);
+		}
+		&--bottom {
+			bottom: 30px;
+			right: 10px;
+			transform: rotate(180deg);
+		}
+	}
+	&__num {
+		font-size: 40px;
+		letter-spacing: -.12em;
+		position: absolute;
+		margin: 0;
+		
+		&--top {
+			top: 5px;
+			left: 10px;
+		}
+		&--bottom {
+			bottom: 5px;
+			right: 10px;
+			transform: rotate(180deg);
+		}
+	}
+}
+.ba-card__item:nth-child(4n-0) .ba-card__suit {
+	background: url('../img/heart.png');
+	background-size: cover;
+}
+.ba-card__item:nth-child(4n-1) .ba-card__suit {
+	background: url('../img/spades.png');
+	background-size: cover;
+}
+.ba-card__item:nth-child(4n-2) .ba-card__suit {
+	background: url('../img/diamond.png');
+	background-size: cover;
+}
+.ba-card__item:nth-child(4n-3) .ba-card__suit {
+	background: url('../img/clover.png');
+	background-size: cover;
+}
+.ba-card__item:nth-child(even) {
+	color: #d80027;
+}
+
+
+/* Typography */
+a,
+input[type="submit"],
+input[type="button"],
+button{
+	-webkit-transition: color .3s ease-in, border-color .3s ease-in, background-color .3s ease-in, opacity .3s ease-in;
+	-moz-transition: color .3s ease-in, border-color .3s ease-in, background-color .3s ease-in, opacity .3s ease-in;
+	transition: color .3s ease-in, border-color .3s ease-in, background-color .3s ease-in, opacity .3s ease-in;
+}
+input[type="submit"],
+input[type="button"],
+button,
+.ba-button{
+	display: inline-block;
+}
+input[type="submit"]:hover,
+input[type="button"]:hover,
+button:hover,
+.ba-button:hover{
+
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="tel"],
+textarea,
+select {
+
+	-webkit-transition: color .3s ease-in, border-color .3s ease-in, background-color .3s ease-in, opacity .3s ease-in;
+	-moz-transition: color .3s ease-in, border-color .3s ease-in, background-color .3s ease-in, opacity .3s ease-in;
+	transition: color .3s ease-in, border-color .3s ease-in, background-color .3s ease-in, opacity .3s ease-in;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+textarea:focus,
+select:focus {
+
+}
+textarea {
+
+}
